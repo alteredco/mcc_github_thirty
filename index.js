@@ -6,8 +6,8 @@ var questions = [
   ["Are you travelling with pets?","Yes","No","Yes"],
   ["Are you travelling as a couple?", "Yes", "No", "Yes"],
   ["Do you crave city-life or nature?", "City", "Country", "Yes"],
-  ["Do you want to have lots of activities or relaxation?", "Activities", "Relaxation", "Yes"],
-  ["Are you more interested in sports or food?", "Sports","Food", "Yes" ]
+  ["Do you want to have lots of activities or relaxation?", "Activities", "Relaxation", "Activities"],
+  ["Are you more interested in sports or food?", "Sports","Food", "Sports" ]
 ];
 
 // function to fetch element 
