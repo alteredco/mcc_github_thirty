@@ -1,5 +1,5 @@
 // var that tracks user position in the quiz
-var pos = 0, quiz, quiz_status, question, choice, choices, chcA, chcB, correct = 0;
+var pos = 0, quiz, quiz_status, question, choice, choices, chA, chB, correct = 0;
 
 var questions = [
   ["Are you travelling with children?","Yes","No","Yes"],
@@ -15,6 +15,7 @@ function _(x) {
   return document.getElementById(x);
 };
 
+// function to render question on the index.html page
 function renderQuestion() {
  quiz= ("quiz");
 
@@ -28,6 +29,20 @@ function renderQuestion() {
   _("quiz").innerHTML += "<input type='button' name ='choices'   value='"+chA+"'><br>";
   _("quiz").innerHTML += "<input type='button' name ='choices' value='"+chB+"'><br>";
 };
+
+function checkAnswer () {
+    choices = document.getElementsByName("choices");
+    for(var i = 0; i<choices.length; i++) {
+      if(choices[i].click) {
+        choice= choices[i].value;
+      }
+    }
+    if(choice == questions[pos][4]) {
+      correct++;
+    }
+};
+
+
 
 document.onload = renderQuestion();
 
