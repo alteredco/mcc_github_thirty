@@ -26,11 +26,11 @@ function renderQuestion() {
   chB = questions[pos][2];
 
   _("quiz").innerHTML = "<h3>" + question +"</h3>";
-  _("quiz").innerHTML += "<input type='button' name ='choices'   value='"+chA+"'><br>";
-  _("quiz").innerHTML += "<input type='button' name ='choices' value='"+chB+"'><br>";
+  _("quiz").innerHTML += "<input type='button' name ='choices' onclick='checkAnswer()'  value='"+chA+"'><br>";
+  _("quiz").innerHTML += "<input type='button' name ='choices' onclick='checkAnswer()' value='"+chB+"'><br>";
 };
 
-function checkAnswer () {
+function checkAnswer() {
     choices = document.getElementsByName("choices");
     for(var i = 0; i<choices.length; i++) {
       if(choices[i].click) {
@@ -40,6 +40,8 @@ function checkAnswer () {
     if(choice == questions[pos][4]) {
       correct++;
     }
+    pos++;
+    renderQuestion();
 };
 
 
