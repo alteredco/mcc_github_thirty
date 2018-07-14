@@ -10,7 +10,7 @@ var questions = [
   ["Are you more interested in sports or food?", "Sports","Food", "Sports" ]
 ];
 
-// function to fetch element 
+// function to fetch element
 function _(x) {
   return document.getElementById(x);
 };
@@ -24,10 +24,10 @@ function renderQuestion() {
   chA = questions[pos][1];
   chB = questions[pos][2];
 
+
   _("quiz").innerHTML = "<h3>" + question +"</h3>";
-  _("quiz").innerHTML += "<input type='button' name ='choices'   value='"+chA+"'><br>";
-  _("quiz").innerHTML += "<input type='button' name ='choices' value='"+chB+"'><br>";
+  _("btn1").innerHTML += chA;
+  _("btn2").innerHTML += chB;
 };
 
 document.onload = renderQuestion();
-
