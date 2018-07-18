@@ -10,6 +10,8 @@ var questions = [
   ["Are you more interested in sports or food?", "Sports","Food", "Sports" ]
 ];
 
+var totQuestions = questions.length;
+
 // function to fetch element
 function _(x) {
   return document.getElementById(x);
@@ -19,7 +21,11 @@ function _(x) {
 function renderQuestion() {
  quiz= ("quiz");
 
-  _("quiz_status").innerHTML = "Questions " +(pos+1) + " of " + questions.length;
+ if(pos <= (totQuestions-1)){
+  _("quiz_status").innerHTML = "Questions " +(pos+1) + " of " + totQuestions;
+} else {
+  _("quiz_status").innerHTML = "Questions " +(pos) + " of " + totQuestions;
+}
 
   question = questions[pos][0];
   chA = questions[pos][1];
@@ -27,19 +33,16 @@ function renderQuestion() {
 
 
   _("quiz").innerHTML = "<h3>" + question +"</h3>";
-  _("btn1").innerHTML += chA;
-  _("btn2").innerHTML += chB;
+  _("btnA").innerHTML += chA +"<br>";
+  _("btnB").innerHTML += chB + "<br>";
 };
 
 function checkAnswer() {
-    choices = document.getElementsByName("choices");
-    for(var i = 0; i<choices.length; i++) {
-      if(choices[i].click) {
-        choice= choices[i].value;
+    for(var i = 0; i<questions[pos]; i++) {
+      if(choice == questions[pos][4]) {
+        correct++;
+        console.log(correct);
       }
-    }
-    if(choice == questions[pos][4]) {
-      correct++;
     }
     pos++;
     renderQuestion();
