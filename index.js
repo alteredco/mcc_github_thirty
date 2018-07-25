@@ -50,3 +50,6 @@ function checkAnswer() {
 
 
 document.onload = renderQuestion();
+
+
+console.log("this is a test");  
