@@ -33,13 +33,13 @@ function renderQuestion() {
 
 
   _("quiz").innerHTML = "<h3>" + question +"</h3>";
-  _("btnA").innerHTML += chA +"<br>";
-  _("btnB").innerHTML += chB + "<br>";
+  _("quiz").innerHTML += "<input type='button' class='btn' name ='choices' onClick='checkAnswer()'  value=' "+chA+"'><br>";
+  _("quiz").innerHTML += "<input type='button' class='btn' onClick='checkAnswer()' name ='choices' value=' "+chB+"'><br>";
 };
 
 function checkAnswer() {
-    for(var i = 0; i<questions[pos]; i++) {
-      if(choice == questions[pos][4]) {
+    for(var i = 0; i<questions[pos].length; i++) {
+      if(choice === questions[pos][4]) {
         correct++;
         console.log(correct);
       }
@@ -47,7 +47,6 @@ function checkAnswer() {
     pos++;
     renderQuestion();
 };
-
 
 
 document.onload = renderQuestion();
